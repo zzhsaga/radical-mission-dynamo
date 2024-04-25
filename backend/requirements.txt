@@ -1,0 +1,7 @@
+fastapi
+redis_om
+pydantic
+langchain
+dotenv
+redis
+chromadb
