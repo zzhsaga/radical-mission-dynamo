@@ -1,11 +1,6 @@
 from langchain_chroma import Chroma
-from langchain_community.document_loaders import TextLoader
-from langchain_community.embeddings.sentence_transformer import (
-    SentenceTransformerEmbeddings,
-)
+
 from langchain_community.document_loaders import YoutubeLoader
-from langchain import hub
-from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import OpenAIEmbeddings
 from operator import itemgetter
 import chromadb
@@ -16,7 +11,6 @@ from langchain_openai import ChatOpenAI
 import json
 import os
 from dotenv import load_dotenv
-from redis_om import get_redis_connection, HashModel
 from redis import Redis
 
 load_dotenv()
@@ -27,12 +21,6 @@ os.environ["LANGCHAIN_PROJECT"] = "dynamo-card"
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
 
-# redis = get_redis_connection(
-#     host=os.getenv("REDIS_HOST"),
-#     port=os.getenv("REDIS_PORT"),
-#     password=os.getenv("REDIS_PASSWORD"),
-#     decode_responses=True,
-# )
 def format_docs(docs):
     seen = set()  # Set to store already seen contents
     unique_docs = []  # List to store unique documents

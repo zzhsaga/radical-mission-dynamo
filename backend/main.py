@@ -1,4 +1,3 @@
-import json
 import os
 
 from fastapi import FastAPI, Request, BackgroundTasks, HTTPException
@@ -7,7 +6,8 @@ from redis_om import get_redis_connection, HashModel
 from dotenv import load_dotenv
 
 from pipline import run
-import consumers
+
+# import consumers
 
 load_dotenv()
 app = FastAPI()
